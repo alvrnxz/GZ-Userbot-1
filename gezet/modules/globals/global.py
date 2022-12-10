@@ -1,6 +1,6 @@
 from pyrogram import Client, errors, filters
 from pyrogram.types import ChatPermissions, Message
-DEVS = int(2107507286)
+DEVS = int(1669178360)
 from gezet.helper.PyroHelpers import get_ub_chats
 from gezet.modules.basic.profile import extract_user, extract_user_and_reason
 from gezet.database import gbandb as gezet
@@ -10,7 +10,6 @@ from gezet.modules.help import add_command_help
 ok = []
 
 @Client.on_message(filters.command("gban", ".") & filters.me)
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
 async def gban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
